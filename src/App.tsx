@@ -2,8 +2,6 @@ import { Authenticator } from '@aws-amplify/ui-react'
 import useIsSignedIn from './CustomHook'
 import Todo from './Todo'
 import '@aws-amplify/ui-react/styles.css'
-import OktaSignIn from './okta'
-
 function App() {
 
   console.log("calling useIsSignedIn")
@@ -12,11 +10,7 @@ function App() {
   const auth = <Authenticator/>
   console.log(auth)
 
-  return signed ? <Todo/> : 
-  <div>
-    {auth}
-    <OktaSignIn/>
-  </div>
+  return signed ? <Todo/> : {auth}
 
 }
 export default App;
