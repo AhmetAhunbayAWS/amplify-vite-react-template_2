@@ -13,7 +13,7 @@ export const auth = defineAuth({
           name: "OktaClient",
           clientId: secret('OKTA_CLIENT_ID'),
           clientSecret: secret('OKTA_CLIENT_SECRET'),
-          issuerUrl: 'x',
+          issuerUrl: 'https://dev-z0pet31ai0jjaayy.us.auth0.com',
         }
       ],
       google: {
