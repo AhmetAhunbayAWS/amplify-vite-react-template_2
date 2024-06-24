@@ -8,7 +8,14 @@ export const auth = defineAuth({
   loginWith: {
     email: true,
     externalProviders: {
-      oidc: [],
+      oidc: [
+        {
+          name: "OktaClient",
+          clientId: secret('OKTA_CLIENT_ID'),
+          clientSecret: secret('OKTA_CLIENT_SECRET'),
+          issuerUrl: 'x',
+        }
+      ],
       google: {
         clientId: secret('GOOGLE_CLIENT_ID'),
         clientSecret: secret('GOOGLE_CLIENT_SECRET'), 
