@@ -1,7 +1,7 @@
 
 import { Authenticator } from '@aws-amplify/ui-react'
 import useIsSignedIn from './CustomHook'
-//import Todo from './Todo'
+import Todo from './Todo'
 import '@aws-amplify/ui-react/styles.css'
 import OktaSignIn from './okta'
 
