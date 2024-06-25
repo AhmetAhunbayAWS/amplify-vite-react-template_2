@@ -8,11 +8,11 @@ export const auth = defineAuth({
   loginWith: {
     email: true,
     externalProviders: {
-      // google: {
-      //   clientId: secret('GOOGLE_CLIENT_ID'),
-      //   clientSecret: secret('GOOGLE_CLIENT_SECRET'), 
-      //   scopes: ['email'],
-      // },
+      google: {
+        clientId: secret('GOOGLE_CLIENT_ID'),
+        clientSecret: secret('GOOGLE_CLIENT_SECRET'), 
+        scopes: ['email'],
+      },
       oidc: [
         {
           name: "OktaClient",
