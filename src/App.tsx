@@ -9,13 +9,10 @@ function App() {
 
   console.log("calling useIsSignedIn")
   const signed = useIsSignedIn();
-  console.log(signed)
-  const auth = <Authenticator/>
-  console.log(auth)
 
   return signed ? <Todo/> : 
   <div>
-    {auth}
+    <Authenticator/>
     <OktaSignIn/>
   </div>
 
