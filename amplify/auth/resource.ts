@@ -22,8 +22,8 @@ export const auth = defineAuth({
           scopes: ['openid','email']
         }
       ],
-      callbackUrls: ['http://localhost:5173/profile', 'https://main.d21e0xd5en76i9.amplifyapp.com/profile'],
-      logoutUrls:['http://localhost:5173/', 'https://main.d21e0xd5en76i9.amplifyapp.com']
+      callbackUrls: ['http://localhost:5173/profile', 'https://main.d2q4tzqiye4d8b.amplifyapp.com/profile'],
+      logoutUrls:['http://localhost:5173/', 'https://main.d2q4tzqiye4d8b.amplifyapp.com/']
     }
   },
 });
