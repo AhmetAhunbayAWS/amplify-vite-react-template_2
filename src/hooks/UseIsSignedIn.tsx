@@ -20,7 +20,7 @@ function useIsSignedIn() {
       console.log("getCurrentUser called")
     }, [])
     
-    
+
     useEffect(() => {
       //code that runs upon every state change, side effect
       console.log("Hub event called")
