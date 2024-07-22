@@ -8,15 +8,15 @@ sequenceDiagram
     end
     box Auth Resources
     participant Authenticator Component
-    participant IdentityProviders Component
+    participant FederatedIdentity Component
     end
     participant JS Library
     EndUser->>Client App: [1] End user visits host app
     Client App->> Gateway Component: [2] Render gateway component
     Gateway Component->>Authenticator Component: [3] Render Authenticator component
-    Authenticator Component->>IdentityProviders Component: [4] Render IdentityProviders component
-    EndUser->>IdentityProviders Component: [5] Click on 'Sign In with Okta' button
-    IdentityProviders Component-->>JS Library: [6] signInWithRedirect() function called
+    Authenticator Component->>FederatedIdentity Component: [4] Render FederatedIdentity component
+    EndUser->>FederatedIdentity Component: [5] Click on 'Sign In with Okta' button
+    FederatedIdentity Component-->>JS Library: [6] signInWithRedirect() function called
     Note right of Cognito: Customer must have configured<br> Okta client in backend
     JS Library->>Cognito: [7] openAuthSession() function called
     Cognito->>Okta Client: [8] Request Authorization from provider client

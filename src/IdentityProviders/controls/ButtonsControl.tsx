@@ -20,13 +20,20 @@ interface renderListItem{(data: ProviderData) : React.JSX.Element}
 
 export const renderListItemContext = createContext<renderListItem | undefined>(undefined)
 
-interface ButtonsControlSubBlock<
-  T extends FederatedIdentityElements = FederatedIdentityElements,
-  // Button, Icon are ControlElemnts
-> extends Pick<T, 'ListItem' | 'Button' | 'Icon'> {
+interface ButtonsControlSubBlock<T extends Partial<FederatedIdentityElements> = FederatedIdentityElements>{
   (props: {
-    renderListItem?: renderListItem;
+       renderListItem?: renderListItem;
+   }): JSX.Element;
+   ListItem: T['ListItem'];
+   ButtonSubBlock: ButtonSubBlock<T>;
+   ProviderIcon: T['Icon']
+}
+
+interface ButtonSubBlock<T extends Partial<FederatedIdentityElements>, K extends string = string> extends ButtonBaseElement<T> {
+  (props: {
+    provider: K;
   }): JSX.Element;
+  ProviderIcon: T['Icon']
 }
 
 // { children || 

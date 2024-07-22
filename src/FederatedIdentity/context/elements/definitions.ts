@@ -1,35 +1,38 @@
-import defineBaseElement from "./elements/defineBaseElements";
-import { ExtendElement } from "./extendElement";
+import defineBaseElement from "../../../IdentityProviders/elements/defineBaseElements";
 
-export interface FederatedIdentityElements<T extends string = string> {
-    Button: ButtonBaseElement<T>;
+export interface FederatedIdentityElements {
+    Button: typeof ButtonElement;
     List: typeof ListElement;
     ListItem: typeof ListItemElement;
     Icon: typeof IconElement;
 }
 
 type ButtonElementProps = 'onClick' | 'type';
-export const ButtonElement = defineBaseElement<'button', ButtonElementProps>({
+const ButtonElement = defineBaseElement<'button', ButtonElementProps>({
   type: 'button',
   displayName: 'Button',
 });
 
-type ButtonBaseElement<T extends string = string> = ExtendElement<
-  typeof ButtonElement,
-  { provider?: T }
->;
-
-export const ListElement = defineBaseElement({
+const ListElement = defineBaseElement({
     type: 'ul',
     displayName: 'UnorderedList',
 });
 
-export const ListItemElement = defineBaseElement({
+const ListItemElement = defineBaseElement({
     type: 'li',
     displayName: 'ListItem',
 });  
 
-export const IconElement = defineBaseElement<'svg', never>({
+
+const IconElement = defineBaseElement<'svg', never>({
     type: 'svg',
     displayName: 'Icon',
 });
+
+
+export const FederatedIdentityElements: FederatedIdentityElements = {
+  Button: ButtonElement,
+  List: ListElement,
+  ListItem: ListItemElement,
+  Icon: IconElement,
+}

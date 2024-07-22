@@ -8,7 +8,7 @@ sequenceDiagram
     end
     EndUser->>Client App: [1] End user visits host app
     box Auth Resources
-    participant IdentityProviders Component
+    participant FederatedIdentity Component
     participant useIsSignedIn Hook
     end
     Client App->> Gateway Component: [2] Render gateway component
@@ -18,9 +18,9 @@ sequenceDiagram
     JS Library->>useIsSignedIn Hook: [5] Throw Auth exception (Unauthorized)
     useIsSignedIn Hook->>Gateway Component: [6] isSignedIn state set to false (default)
     deactivate useIsSignedIn Hook
-    Gateway Component->>IdentityProviders Component: [7] Render IdentityProviders component
-    EndUser->>IdentityProviders Component: [8] Click on 'Sign In with Google' button
-    IdentityProviders Component-->>JS Library: [9] signInWithRedirect() function called
+    Gateway Component->>FederatedIdentity Component: [7] Render FederatedIdentity component
+    EndUser->>FederatedIdentity Component: [8] Click on 'Sign In with Google' button
+    FederatedIdentity Component-->>JS Library: [9] signInWithRedirect() function called
     JS Library->>Cognito: [10] Request Authorization
     Note right of Cognito: Successful Google OAuth Flow
     Cognito->>JS Library: [11] Grant Authorization

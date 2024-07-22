@@ -1,10 +1,9 @@
 import React from 'react';
 import { ProviderData, ProviderType, socialProviderList, socialProvidersUnion } from '../types';
-    
-type ProviderDataContextProps = ProviderType[] | undefined;
+import { Icon } from '@aws-amplify/ui-react';
 
 export const ProviderDataContext =
-  React.createContext<ProviderDataContextProps>(undefined);
+  React.createContext<ProviderData[] | undefined>(undefined);
 
 const AppleIcon = (): JSX.Element => {
     return (
@@ -147,4 +146,16 @@ export const ProviderDataProvider = ({
       {children}
     </ProviderDataContext.Provider>
   );
+};
+
+export const useProviderData = (): ProviderData[] => {
+  const context = React.useContext(ProviderDataContext);
+
+  if (!context) {
+    throw new Error('');
+  }
+
+  const providers = context
+
+  return providers;
 };

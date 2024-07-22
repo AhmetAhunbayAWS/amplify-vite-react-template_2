@@ -1,5 +1,6 @@
-import { BaseElement } from "./elements/types";
-import { ElementRefType } from "./elements/types";
+import { BaseElement } from "../../../IdentityProviders/elements/types";
+import { ElementRefType } from "../../../IdentityProviders/elements/types";
+
 
 export type ExtendElement<
   T extends React.ComponentType,

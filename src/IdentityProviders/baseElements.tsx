@@ -2,8 +2,8 @@ import defineBaseElement from "./elements/defineBaseElements";
 import { BaseElement } from "./elements/types";
 import { ElementRefType } from "./elements/types";
 import React from "react";
-
-export interface FederatedIdentityElements<T extends string = string> {
+ 
+ interface FederatedIdentityElements<T extends string = string> {
     Button: ButtonBaseElement<T>;
     List: typeof ListElement;
     ListItem: typeof ListItemElement;
@@ -11,7 +11,7 @@ export interface FederatedIdentityElements<T extends string = string> {
 }
 
 type ButtonElementProps = 'onClick' | 'type';
-export const ButtonElement = defineBaseElement<'button', ButtonElementProps>({
+ const ButtonElement = defineBaseElement<'button', ButtonElementProps>({
   type: 'button',
   displayName: 'Button',
 });
@@ -22,7 +22,7 @@ type ExtendElement<
   U extends React.ComponentProps<T> = React.ComponentProps<T>,
 > = BaseElement<U & K, ElementRefType<T>>;
 
-export type ButtonBaseElement<T extends string = string> = ExtendElement<
+ type ButtonBaseElement<T extends string = string> = ExtendElement<
   typeof ButtonElement,
   { provider?: T }
 >;
